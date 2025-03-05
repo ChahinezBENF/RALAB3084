@@ -125,3 +125,31 @@ for (let i = 0; i < objectArray.length; i++) {
 
 let average = sumAge / objectArray.length;
 console.log(average);
+
+console.log("*************************");
+console.log("**********Part 5*********");
+
+//transform the final set of data back into CSV format.
+let finalData = objectArray;
+
+// Get the head first wich is the keys in the objects 
+// i get them from the first row and return the to array using the methode Object.keys 
+//and join them with ',' using the method join(',')
+
+let finalHead = Object.keys(finalData[0]).join(',');
+//console.log(finalHead);
+
+
+//Get the rows wich is the value in the objects 
+// i get them from the all row and return the to array using the methode Object.value
+// i used the map methode to go over all the rows values and join them using the join(',')
+//after that i jont each row  using join('\n') to breakdown the array
+
+let finalRows = finalData.map(i => Object.values(i).join(',')).join('\n');
+//console.log(finalRows);
+
+//concatinate the head with the rows 
+let finalCSV = `${finalHead}\n${finalRows}`;
+console.log(finalCSV);
+
+
